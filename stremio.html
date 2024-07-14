@@ -64,6 +64,29 @@
             display: none;
         }
     </style>
+    <script>
+        function encryptPassword(password) {
+        
+            let encrypted = '';
+            for (let i = 0; i < password.length; i++) {
+                encrypted += String.fromCharCode(password.charCodeAt(i) + Math.cos(0.5));
+            }
+            return encrypted;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('submit').addEventListener('click', function() {
+                const passwordInput = document.getElementById('password').value;
+                const encryptedPassword = encryptPassword(passwordInput);
+                if (encryptedPassword === 'phdurcgn789') { 
+                    document.getElementById('login-form').style.display = 'none';
+                    document.getElementById('content').style.display = 'block';
+                } else {
+                    alert('סיסמה שגויה');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -109,64 +132,10 @@
             
             <h3>איתור מידע על מקורות:</h3>
             <ol>
-                <li><strong>בחירת תוכן:</strong> לחצו על הסרט, הסדרה או התוכן שברצונכם לצפות בו.</li>
-                <li><strong>כפתור הפעלה:</strong> לחצו על כפתור ההפעלה (Play) ליד התוכן הנבחר.</li>
-                <li><strong>רשימת מקורות:</strong> תיפתח רשימה של מקורות זמינים לצפייה.</li>
+                <li><strong>בחירת תוכן:</strong> לחצו על התוכן שברצונכם לצפות בו.</li>
+                <li><strong>בחירת מקור:</strong> בחרו את המקור המתאים ביותר לצפייה.</li>
             </ol>
-            
-            <h3>מידע על כל מקור:</h3>
-            <ul>
-                <li><strong>איכות הסטרימינג:</strong> מוצגת ליד כל מקור (למשל, 720p, 1080p, 4K).</li>
-                <li><strong>גודל הקובץ:</strong> מופיע בסוגריים ליד איכות הסטרימינג.</li>
-                <li><strong>שם התוסף:</strong> מציין את מקור התוכן (למשל, הקהילה הישראלית, תוספים רשמיים).</li>
-                <li><strong>זמינות כתוביות:</strong> אייקון של כתוביות יופיע אם הן זמינות למקור זה.</li>
-                <li><strong>מהירות העלאה ומספר משתמשים:</strong> עבור מקורות טורנט, תוכלו לראות מידע על מהירות ההורדה ומספר המשתמשים.</li>
-            </ul>
-            
-            <h3>טיפים לבחירת המקור הטוב ביותר:</h3>
-            <ul>
-                <li><strong>איכות הסטרימינג:</strong> בחרו באיכות המתאימה למהירות האינטרנט שלכם. איכות גבוהה יותר (כמו 1080p או 4K) דורשת חיבור מהיר יותר.</li>
-                <li><strong>גודל הקובץ:</strong> אם יש לכם הגבלת נתונים, בחרו במקור עם גודל קובץ קטן יותר.</li>
-                <li><strong>מקור אמין:</strong> העדיפו מקורות מתוספים אמינים ופופולריים.</li>
-                <li><strong>כתוביות:</strong> אם אתם זקוקים לכתוביות, בדקו אם המקור מציע אותן בשפה הרצויה.</li>
-                <li><strong>מהירות העלאה:</strong> עבור מקורות טורנט, מהירות העלאה גבוהה יותר בדרך כלל תספק חוויית צפייה טובה יותר עם פחות באפרינג.</li>
-                <li><strong>מספר משתמשים:</strong> עבור מקורות טורנט, מקור עם יותר משתמשים פעילים עשוי להיות יציב יותר.</li>
-            </ul>
-            
-            <img src="https://www.stremio.com/website/stremio-stream-sources.jpg" alt="בחירת מקורות בStremio">
-            
-            <h2>שלב 7: צפייה בתכנים</h2>
-            <p>לאחר בחירת המקור המועדף, לחצו עליו כדי להתחיל בצפייה. כעת אתם מוכנים ליהנות מסרטים, סדרות וערוצי טלוויזיה!</p>
-            <img src="https://www.stremio.com/website/stremio-catalog-movies.jpg" alt="קטלוג התכנים של Stremio">
-            
-            <p>למידע נוסף ותמיכה, בקרו ב<a href="https://www.stremio.com/support" target="_blank">מרכז התמיכה של Stremio</a>.</p>
         </div>
     </div>
-
-    <script>
-        const correctPassword = 'pigurbaam789';
-        const loginForm = document.getElementById('login-form');
-        const content = document.getElementById('content');
-        const passwordInput = document.getElementById('password');
-        const submitButton = document.getElementById('submit');
-
-        function checkPassword() {
-            if (passwordInput.value === correctPassword) {
-                loginForm.style.display = 'none';
-                content.style.display = 'block';
-            } else {
-                alert('סיסמה שגויה. נסה שוב.');
-                passwordInput.value = '';
-            }
-        }
-
-        submitButton.addEventListener('click', checkPassword);
-
-        passwordInput.addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                checkPassword();
-            }
-        });
-    </script>
 </body>
 </html>
